@@ -1,22 +1,39 @@
 /**index.wxss**/
 page{
-  background-color: black;
   color: white;
 }
 .container{
-  width: 95vw;
+  width:100vw;
   margin: 0 auto;
+  overflow: hidden;
+}
+swiper{
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+.one{
+  width:100vw;
+  height: 100vh;
+  display: inline-block;
+}
+.main{
+  width:95vw;
+  margin:0 auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .calendar{
-  margin: 150rpx auto;
+  margin:80rpx auto 150rpx auto ;
 }
 .calendar .num{
-  font-size:100rpx;
-  line-height: 150rpx;
+  font-size:130rpx;
+  line-height:260rpx;
   text-align: center;
 }
 .calendar .date{
-  font-size: 40rpx;
+  font-size: 50rpx;
   letter-spacing:10rpx;
 }
 .calendar .date text{
@@ -27,11 +44,85 @@ page{
   margin: 0 auto;
 }
 .content .label{
-   line-height: 100rpx;
+   line-height: 80rpx;
 }
 .content .text{
   font-size: 30rpx;
-  line-height: 60rpx;
-  display: block;
+  line-height: 50rpx;
+  width: 100%;
+  white-space: pre-line;
 }
 
+.music-box0{
+  background-color:black;
+  color: white;
+  opacity: 0.5;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  padding:1vh 5vw;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+    height: 140rpx;
+}
+.music-box{
+  color: white;
+  position: fixed;
+  height: 140rpx;
+  bottom: 0;
+  width: 100vw;
+  padding:1vh 5vw;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 200;
+}
+.music-box  .box{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.music-box  .box .name{
+    margin-left: 10rpx;
+}
+.music-box  .box .name .time{
+   font-size: 30rpx;
+}
+.music-box  .edit{
+    width:80rpx;
+   height: 80rpx;
+}
+.music-box .box image{
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.backCurrent{
+  position: absolute;
+  width: 150rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border-radius: 20rpx;
+  right: 1vw;
+  bottom: 150rpx;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.5;
+  color: white;
+  font-size: 30rpx;
+
+}
+.backimg{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
