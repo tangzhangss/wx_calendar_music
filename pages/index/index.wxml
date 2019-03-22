@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="container">
+
+    <view class='calendar'>
+         <view class='num'>30</view>
+         <view class='date'>
+            星期三<span>·</span>二月二十号  
+         </view>
+    </view>
+
+    <view class='content'>
+       <view class="label">好野山咔经典款</view>
+       <view class='text'>
+          苏明玉苏明成和好 #苏明成为苏明玉打架#都挺好预告38 39（网络版）苏明玉为苏明成工作事情找到周经理，苏明成暴打侮辱明玉的人又进了派出所
+明玉：我是苏明成的妹妹，苏明成是个什么狗东西，
+       </view>
+    </view>
+
+</view>

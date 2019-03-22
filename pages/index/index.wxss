@@ -1,0 +1,37 @@
+/**index.wxss**/
+page{
+  background-color: black;
+  color: white;
+}
+.container{
+  width: 95vw;
+  margin: 0 auto;
+}
+.calendar{
+  margin: 150rpx auto;
+}
+.calendar .num{
+  font-size:100rpx;
+  line-height: 150rpx;
+  text-align: center;
+}
+.calendar .date{
+  font-size: 40rpx;
+  letter-spacing:10rpx;
+}
+.calendar .date text{
+  font-weight: bold;
+}
+.content{
+  width: 90%;
+  margin: 0 auto;
+}
+.content .label{
+   line-height: 100rpx;
+}
+.content .text{
+  font-size: 30rpx;
+  line-height: 60rpx;
+  display: block;
+}
+
