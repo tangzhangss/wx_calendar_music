@@ -91,6 +91,8 @@ swiper{
 }
 .music-box  .box .name .time{
    font-size: 30rpx;
+   display: flex;
+   align-items: center;
 }
 .music-box  .edit{
     width:80rpx;
@@ -125,4 +127,78 @@ swiper{
   width: 100vw;
   height: 100vh;
   z-index: -1;
+}
+.music-box .box .set{
+  width: 50rpx;
+  height: 50rpx;
+}
+.answer-form{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  animation: answerAnimation 0.5s;
+  bottom: 140rpx;
+  overflow: auto;
+}
+@keyframes answerAnimation
+{
+    from {top: -100vh;}
+    to {top: 0vh;}
+}
+.question{
+  width: 95vw;
+  margin: 20rpx auto;
+}
+.question .options  radio-group{
+  display: flex;
+  justify-content: flex-start;
+  font-size: 25rpx;
+  margin-top:15rpx; 
+  flex-wrap: wrap;
+}
+.question .options  radio-group >view{
+  margin-right: 20rpx;
+}
+.question .options radio{
+  height: 20rpx;
+  width: 20rpx;
+  margin-top: 20rpx;
+  margin-right: 30rpx;
+}
+.submit{
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 30vw;
+  border-radius: 20rpx;
+  background-color: black;
+  opacity: 0.6;
+  margin: 20rpx auto;
+  margin-left: 68vw;
+}
+.nums{
+  position: relative;
+  margin:0 auto;
+  width: 90vw;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  height: 80vh;
+  padding-top:10vh; 
+}
+.nums .large{
+  font-size: 300rpx;
+}
+.nums .new{
+  position: absolute;
+  bottom: 10vh;
+   height: 80rpx;
+  line-height: 80rpx;
+  width: 30vw;
+  border-radius: 20rpx;
+  background-color: black;
+  opacity: 0.9;
+  text-align: center;
 }

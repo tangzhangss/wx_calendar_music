@@ -1,7 +1,7 @@
 <!--index.wxml-->
 
 <view class="container" hidden='{{!loaded}}'>
-  <swiper bindchange="bindchange" current='{{previndex}}' circular="true">
+  <swiper bindchange="bindchange" current='{{previndex}}' circular="true" hidden='{{answerShow}}'>
    <block wx:for="{{objs}}" wx:key="">
     <swiper-item>
    <view class='main'>
@@ -21,7 +21,7 @@
 </swiper>
 </view>
 <image src='{{backimg}}'  class='backimg'></image>
-<view class='backCurrent' bindtap='backCurrent'>回到今天</view>
+<view class='backCurrent' bindtap='backCurrent' hidden='{{answerShow}}'>回到今天</view>
 <view class='music-box0'>
 </view>
 <view class='music-box'>
@@ -30,9 +30,46 @@
                <image bindtap='pauseAudio' src='/img/pause.png' wx:if="{{status == 1}}"></image>
                <view class='name'>
                   <view class='title'>{{objs[1].audio.title}}</view>
-                  <view class='time'>{{timeShow}}</view>
+                  <view class='time'>
+                  {{timeShow}}
+        <picker bindchange="bindPickerChange" range="{{timearray}}">
+           <image class='set' src='/img/set.png'></image>
+        </picker>
+                 
+                  </view>
                </view>
          </view>
-         <image class='edit'  src='/img/edit.png'>
+         <image class='edit'  src='/img/edit.png' bindtap='answerShow'>
          </image>
+</view>
+ 
+<view class="answer-form" hidden='{{!answerShow}}'>
+    <block wx:if="{{myScore}}">
+        <view class='nums'>
+            <view class='mark'>
+                您的睡眠质量分数
+            </view>
+
+            <view class='large'>
+               {{myScore}}
+            </view>
+            
+            <view class='new' bindtap='newAnswer'>重新填写</view>
+        </view>
+    </block>
+    <block wx:else>
+        <view wx:for="{{answers}}" wx:key="" class='question'>
+            <view class='title'>{{item.title}}</view>
+            <view class='options'>
+               <radio-group class="radio-group" data-index="{{index}}" bindchange="radioChange">
+                  <block wx:for="{{item.options}}" wx:key="">
+                    <view>
+                       <radio value="{{index}}"/>{{item.question}}
+                    </view>
+               </block>
+             </radio-group>
+             </view>
+        </view> 
+        <view class='submit' bindtap='submit'>提交</view>
+    </block>
 </view>

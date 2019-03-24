@@ -21,11 +21,59 @@ Page({
     status: 1,//1 播放中  2暂停
     timeShow: "",
     time: "",
+    answerShow:false,
     audios:[],
     contents:[],
     backimgs:[],
     previndex:1,//滑动时记录_上一个变化的index_ 未滑动 也表示当前current
     backimg:"",
+    timearray:[],
+    answers:[],//问卷题目
+    myAnswer:[],//我的回答
+    myScore:''//我的分数
+  },
+  answerShow:function(){
+
+    this.setData({
+      answerShow: this.data.answerShow?false:true
+    })
+  },
+  radioChange:function(e){
+    
+    let index = e.currentTarget.dataset.index;
+    let i = e.detail.value;
+   
+    let temp = {
+      question:index,
+      answer:i
+    }
+    this.data.myAnswer[index] = temp;
+  },
+  submit:function(e){
+    let answer = this.data.myAnswer;
+
+    if (answer.length != this.data.answers.length){
+      wx.showToast({
+        title: '每一项都需要选择',
+        icon:"none"
+      })
+      return false;
+    }
+    //计算分数
+    let score = 0;
+    answer.forEach((val,index)=>{
+        score += this.data.answers[val.question].options[val.answer].score;
+    })
+    //保存
+    
+    //1.将myanswer放入缓存
+    wx.setStorageSync("myAnswer", answer);
+    wx.setStorageSync("myScore", score);
+    //2.g更新当前myanswer和分数
+    this.setData({
+      myScore: score,
+      myAnswer: answer
+    })
   },
   pauseAudio: function (e) {
     console.log("暂停...");
@@ -33,6 +81,28 @@ Page({
     this.setData({
       status: 2
     })
+  },
+  newAnswer:function(){
+     //清控缓存
+    wx.removeStorageSync("myAnswer");
+    wx.removeStorageSync("myScore");
+    //2.g更新当前myanswer和分数
+    this.setData({
+      myScore: "",
+      myAnswer: []
+    })
+  },
+  //更换时间
+  bindPickerChange:function(e){
+    let val = this.data.timearray[e.detail.value];
+    //字符串提取出来数字
+    let v = val.slice(0,-2);
+    let time = parseInt(v)*60;
+    this.setData({
+      time: time,
+      timeShow: this.doSecondFormat(time),
+    })
+
   },
   backCurrent:function(){
     this.init();
@@ -134,6 +204,10 @@ Page({
          audios: config.getVoice.audios,
          contents: config.getVoice.contents,
          backimgs: config.getVoice.backimgs,
+         timearray: config.getVoice.timearray,
+         answers: config.getVoice.answers,
+         myAnswer: wx.getStorageSync("myAnswer") || [],
+         myScore: wx.getStorageSync("myScore"),
          time: config.getVoice.default_time,
          timeShow: this.doSecondFormat(config.getVoice.default_time),
          loaded:false,
@@ -211,8 +285,8 @@ Page({
   doSecondFormat(second) {
     let m = parseInt(parseInt(second) / 60);
     let s = parseInt(second) % 60;
-    let gap1 = m > 10 ? '' : '0';
-    let gap2 = s > 10 ? ':' : ':0';
+    let gap1 = m >= 10 ? '' : '0';
+    let gap2 = s >= 10 ? ':' : ':0';
     let res = gap1 + m + gap2 + s;
     return res;
   },
