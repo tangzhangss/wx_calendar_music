@@ -30,7 +30,13 @@ Page({
     timearray:[],
     answers:[],//问卷题目
     myAnswer:[],//我的回答
-    myScore:''//我的分数
+    myScore:'',//我的分数
+    timerShow:false,
+  },
+  backhome:function(e){
+    this.setData({
+      timerShow: false
+    })
   },
   answerShow:function(){
 
@@ -49,7 +55,13 @@ Page({
     }
     this.data.myAnswer[index] = temp;
   },
-  submit:function(e){
+  bindTimerShow:function(){
+    this.setData({
+      answerShow:false,
+      timerShow:true
+    })
+  },
+   submit:function(e){
     let answer = this.data.myAnswer;
 
     if (answer.length != this.data.answers.length){

@@ -1,7 +1,7 @@
 <!--index.wxml-->
 
 <view class="container" hidden='{{!loaded}}'>
-  <swiper bindchange="bindchange" current='{{previndex}}' circular="true" hidden='{{answerShow}}'>
+  <swiper bindchange="bindchange" current='{{previndex}}' circular="true" hidden='{{answerShow || timerShow}}'>
    <block wx:for="{{objs}}" wx:key="">
     <swiper-item>
    <view class='main'>
@@ -21,20 +21,20 @@
 </swiper>
 </view>
 <image src='{{backimg}}'  class='backimg'></image>
-<view class='backCurrent' bindtap='backCurrent' hidden='{{answerShow}}'>回到今天</view>
-<view class='music-box0'>
+<view class='backCurrent' bindtap='backCurrent' hidden='{{answerShow||timerShow}}'>回到今天</view>
+<view class='music-box0' hidden='{{timerShow}}'>
 </view>
-<view class='music-box'>
+<view class='music-box' hidden='{{timerShow}}'>
          <view class='box'>
                <image bindtap='playAudio' src='/img/play.png' wx:if="{{status ==2 }}"></image>
                <image bindtap='pauseAudio' src='/img/pause.png' wx:if="{{status == 1}}"></image>
                <view class='name'>
                   <view class='title'>{{objs[1].audio.title}}</view>
-                  <view class='time'>
+                  <view class='time' bindtap="bindTimerShow">
                   {{timeShow}}
-        <picker bindchange="bindPickerChange" range="{{timearray}}">
+        <!-- <picker bindchange="bindPickerChange" range="{{timearray}}">
            <image class='set' src='/img/set.png'></image>
-        </picker>
+        </picker> -->
                  
                   </view>
                </view>
@@ -72,4 +72,31 @@
         </view> 
         <view class='submit' bindtap='submit'>提交</view>
     </block>
+</view>
+<!--定时器页面-->
+<view class='timer' hidden='{{!timerShow}}'>
+    <view class='bx'>
+      <image class='timer-action' bindtap='playAudio' src='/img/play.png' wx:if="{{status ==2 }}"></image>
+               <image class='timer-action' bindtap='pauseAudio' src='/img/pause.png' wx:if="{{status == 1}}"></image>
+    </view>
+   
+     
+     <view class='content bx'>
+         <view class='title'>{{objs[1].audio.title}}</view>
+         <view>{{timeShow}}</view>
+     </view>
+
+    <view class='bx'>
+         <picker bindchange="bindPickerChange" range="{{timearray}}">
+          <view  class='op'>
+           <image class='set' src='/img/set.png'></image>
+           <view>定时器</view>
+          </view>
+          
+        </picker>
+    
+         <view class='backHome op' bindtap='backhome'>回到首页</view>       
+    </view>
+    
+  
 </view>

@@ -153,7 +153,8 @@ swiper{
 .question .options  radio-group{
   display: flex;
   justify-content: flex-start;
-  font-size: 25rpx;
+  align-items: center;
+  font-size:30rpx;
   margin-top:15rpx; 
   flex-wrap: wrap;
 }
@@ -162,9 +163,11 @@ swiper{
 }
 .question .options radio{
   height: 20rpx;
+  transform:scale(0.7);
   width: 20rpx;
   margin-top: 20rpx;
-  margin-right: 30rpx;
+  margin-right: 20rpx;
+  opacity: 0.4;
 }
 .submit{
   text-align: center;
@@ -201,4 +204,52 @@ swiper{
   background-color: black;
   opacity: 0.9;
   text-align: center;
+}
+
+.timer{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  animation: answerAnimation1 0.5s;
+  bottom: 0;
+  overflow: auto;
+  z-index: 300;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+@keyframes answerAnimation1
+{
+    from {top: 100vh;}
+    to {top: 0vh;}
+}
+.timer-action{
+  width:400rpx;
+  height: 400rpx;
+  margin: 50rpx auto;
+  display: block;
+}
+.timer .content{
+  text-align: center;
+}
+.timer .content .title{
+  font-size: 50rpx;
+}
+.set{
+  width: 50rpx;
+  height: 50rpx;
+}
+.op{
+  width: 300rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10rpx;
+  border: 1px solid white;
+  box-sizing: border-box;
+  margin-top: 50rpx;
+  height: 100rpx;
+  border-radius: 10rpx;
 }

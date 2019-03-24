@@ -47,19 +47,19 @@ function getVoice(){
         "title": "题目一",
         options: [
           {
-            question: "1..........",
+            question: "1ererasaer撒大大",
             score: 1
           },
           {
-            question: "2..........",
+            question: "2三大法师法法嘎嘎地方",
             score: 1
           },
           {
-            question: "3..........",
+            question: "32三大法师法法嘎嘎地方",
             score: 1
           },
           {
-            question: "4..........",
+            question: "42三大法师法法嘎嘎地方",
             score: 1
           },
         ],
