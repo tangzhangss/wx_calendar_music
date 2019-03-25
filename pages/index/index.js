@@ -175,8 +175,16 @@ Page({
         };
         objs[0] = obj0;
       }
+ 
     
    } 
+    wx.stopBackgroundAudio();
+    
+    let audio = objs[1].audio;
+    //播放指定音乐
+    this.playBackgroundAudio(audio);
+ 
+
     this.setData({
       objs: objs,
       previndex:index,
@@ -225,10 +233,9 @@ Page({
          loaded:false,
          backimg: this.getRandomBackimgs()
        })
-        this.init();
-        // let audio = obj.audio;
-        // //播放指定音乐
-        // this.playBackgroundAudio(audio);
+
+        this.init(); 
+       
   },
  getRandomAudio:function(){
    return this.data.audios[Math.round(Math.random() * (this.data.audios.length - 1))];
@@ -252,10 +259,13 @@ Page({
            audio: this.getRandomAudio(),
            content: this.getRandomContent()
          }
-
          objs.push(obj);
        }
-       console.log(objs);
+      console.log(objs);
+      let audio = objs[1].audio;
+     
+      //播放指定音乐
+      this.playBackgroundAudio(audio);
 
       this.setData({
         loaded:true,

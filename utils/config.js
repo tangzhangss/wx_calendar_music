@@ -5,15 +5,15 @@ function getVoice(){
     //背景音乐
     audios: [
       {
-        dataUrl: 'https://m10.music.126.net/20190322100641/e1266869c3bef5c86d81c7428f367638/ymusic/040c/540c/525b/3fd59c6b4acf334a8773e1056980ad34.mp3',
+        dataUrl: 'http://webftp.bbs.hnol.net/linm/Music2/2018/04/fmzh3/04.mp3',
         title: '测试播放音乐1'
       },
       {
-        dataUrl: 'https://m10.music.126.net/20190322100641/e1266869c3bef5c86d81c7428f367638/ymusic/040c/540c/525b/3fd59c6b4acf334a8773e1056980ad34.mp3',
+        dataUrl: 'http://webftp.bbs.hnol.net/linm/Music2/2018/04/fmzh3/04.mp3',
         title: '测试播放音乐2'
       },
       {
-        dataUrl: 'https://m10.music.126.net/20190322100641/e1266869c3bef5c86d81c7428f367638/ymusic/040c/540c/525b/3fd59c6b4acf334a8773e1056980ad34.mp3',
+        dataUrl: 'http://webftp.bbs.hnol.net/linm/Music2/2018/04/fmzh3/04.mp3',
         title: '测试播放音乐3'
       },
     ],

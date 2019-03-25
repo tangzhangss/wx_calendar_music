@@ -8,5 +8,8 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "。。。。",
     "navigationBarTextStyle":"black"
-  }
+  },
+  "requiredBackgroundModes": [
+    "audio"
+  ]
 }
